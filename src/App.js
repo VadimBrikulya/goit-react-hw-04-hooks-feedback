@@ -44,11 +44,7 @@ function App() {
 				<FeedbackOptions options={["good", "neutral", "bad"]} onLeaveFeedback={onLeaveFeedback} />
 			</Section>
 
-			{countTotalFeedback() ? (
-				<Notification message="No feedback given" />
-			) :
-	
-				(
+			{countTotalFeedback() ?  (
 					<Section title="Statistics">
 						<Statistics
 							good={good}
@@ -58,8 +54,8 @@ function App() {
 							positivePercentage={positivePercentage()}
 						/>
 					</Section>
-				)
-			}
+				): <Notification message="No feedback given" />
+	}
 		</ Wrap>
 	)
 }
