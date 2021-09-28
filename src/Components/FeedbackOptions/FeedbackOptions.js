@@ -1,19 +1,17 @@
-import { Component } from "react";
 import PropTypes from "prop-types";
 import { Button, Container, Item } from "./FeedbackOptions.styled";
 
-class FeedbackOptions extends Component {
-  render() {
+const FeedbackOptions = ({ options, onLeaveFeedback }) =>{
+  
     return (
       <Container>
-        {this.props.options.map((option) => {
+        {options.map((option, index) => {
           return (
-            <Item key={option}>
+            <Item key={index}>
               <Button
                 type="button"
                 name={option}
-                onClick={this.props.onLeaveFeedback}
-              >
+                onClick={() => onLeaveFeedback(option)}>
                 {option}
               </Button>
             </Item>
@@ -22,7 +20,7 @@ class FeedbackOptions extends Component {
       </Container>
     );
   }
-}
+
 
 FeedbackOptions.propTypes = {
   options: PropTypes.array,
